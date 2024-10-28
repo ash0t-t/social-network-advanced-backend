@@ -5,13 +5,13 @@ const follow = async (follower, following) => {
   if (!user) {
     throw new Error('Invalid username');
   }
-  user.followers.push(following);
+  user.followers.push(follower);
   await user.save();
   return user.followers;
 };
 
 const unfollow = async (unfollower, unfollowing) => {
-  const user = await User.findById(following);
+  const user = await User.findById(unfollowing);
   if (!user) {
     throw new Error('Invalid username');
   }
